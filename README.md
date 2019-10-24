@@ -7,3 +7,6 @@ Jenkins &amp; AWS Project
 * Created a user (IAM) for AWS authentication 
 * Automated the backup and upload process with a shell script 
 * Created a Jenkins job to upload your DB to AWS Persisted the script on the remote host
+* Added parameters to the Jenkins Job so that different DBs bbackups can be taken and uploaded to different s3 buckets
+
+
