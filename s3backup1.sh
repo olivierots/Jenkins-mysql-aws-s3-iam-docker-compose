@@ -1,4 +1,4 @@
-#/bin/bash
+#! /bin/bash
 
 DATE=$(date +%H-%M-%S)
 BACKUP=db-$DATE.sqlbackup
