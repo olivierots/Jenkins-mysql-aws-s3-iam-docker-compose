@@ -10,8 +10,9 @@ Project description: created a Jenkins job that will automate the back-up of MyS
 * Persisted the script on the remote host
 * Added parameters to the Jenkins Job so that different DBs backups can be taken and uploaded to different s3 buckets
 ```
-
-## useful docker commands i've used throughout my learning experience ##
+```
+useful docker commands i've used throughout my learning experience
+```
 ```
 * docker-compose up -d ==> start the docker container in the background
 * docker info | grep -i root ==> where docker is saving its files
