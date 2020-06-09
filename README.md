@@ -1,5 +1,4 @@
-## Jenkins_AWS_Docker Project ##
-## Description: Jenkins job that automated the back-up of MySQL databases & uploaded it to amazon S3 buckets
+## Description: Jenkins job that will automate the back-up of MySQL database & upload it to an S3 bucket ##
 ```
 * Created a MySQL db using docker-compose
 * Created an S3 Bucket on AWS 
