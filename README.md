@@ -1,7 +1,6 @@
 ## Jenkins_AWS_Docker Project ##
-Jenkins &amp; AWS Project
-
-* Created a Jenkins job that automated the back-up of MySQL databases & uploaded it to amazon S3 buckets
+## Description: Jenkins job that automated the back-up of MySQL databases & uploaded it to amazon S3 buckets
+```
 * Created a MySQL db using docker-compose
 * Created an S3 Bucket on AWS 
 * Created a user (IAM) for AWS authentication 
@@ -9,9 +8,10 @@ Jenkins &amp; AWS Project
 * Created a Jenkins job which will upload the DB into AWS 
 * Persisted the script on the remote host
 * Added parameters to the Jenkins Job so that different DBs backups can be taken and uploaded to different s3 buckets
-
+```
 
 ## useful docker commands i've used throughout my learning experience ##
+```
 * docker-compose up -d ==> start the docker container in the background
 * docker info | grep -i root ==> where docker is saving its files
 * docker logs -f <container> ==> check your container's logs 
@@ -43,4 +43,4 @@ Jenkins &amp; AWS Project
 * docker-compose top ==> view the processes running within each service container.
 * docker-compose pull <service> ==> pulls an image associated with a service defined in a docker-compose.yml
 * docker-compose restart <service> ==> restarts all stopped and running services.
-
+```
