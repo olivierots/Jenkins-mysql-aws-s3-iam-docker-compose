@@ -1,5 +1,6 @@
 ```
-## Project description: ## created a Jenkins job that will automate the back-up of MySQL database & upload it to an S3 bucket
+Project description: 
+created a Jenkins job that will automate the back-up of MySQL database & upload it to an S3 bucket
 ```
 ```
 * Created a MySQL db using docker-compose
