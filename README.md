@@ -4,20 +4,26 @@ Project description:
 The primary goal is to create a Jenkins job that will take a MySQL & upload that back to an AWS s3 bucket
 Workflow: user --> Up/downaload an object --> internet --> Amazon s3
 with only a click on jenkins, my job will execute the entire process workflow
+The Jenkins Job will have the follwing 3 main parameters. MSQL host, Database name & the AWS bucket name.
 ```
 ```
-## step by step technical instructions ##
+## step by step technical procedure ##
+
 * Build a MySQL image using docker & docker-compose
 * installed aws-cli with all the relevant python/pip packages using the Dockerfile
 * Created an S3 Bucket on AWS 
 * Created a user (IAM=identity & access mngt)) for AWS authentication & give the user the correct access policy to access the bucket
 * Automated the db backup and upload using a shell script 
-* Created a Jenkins job (manually on the UI) which will upload the DB into AWS 
-* Persisted the script on the remote host
-* Added parameters to the Jenkins Job so that different DBs backups can be taken and uploaded to different s3 buckets
+* configured my aws & mysql credentials on Jenkins using secret text as this is sensitive info
+* Created a freestyle project - Jenkins job (manually on the UI) which will upload the DB to AWS using parameters as defined in the sh
+  script e.g MYSQL_HOST, DATABASE_NAME, AWS_BUCKET_NAME
+* used the build env - "use secret text option" for our credentials in the Job
+* added a build step which will ssh into the remote host & execute the script
+* Persisted the script in the container using volumes in docker so that we dont lose it whenever the container is deleted
+* Added parameters to re-use the Jenkins Job so that backups from different dbs can be taken and uploaded to different s3 buckets also
 ```
 ```
-below are some useful ommands i've used & learnt throughout my learning experience:
+Below are some useful ommands i've used & learnt throughout my learning experience:
 
 1. ## docker-compose commands ##
 * docker-compose up -d ==> start the docker container in the background
