@@ -8,14 +8,13 @@ created a Jenkins job that will automate the back-up of MySQL database & upload 
 * Created an S3 Bucket on AWS 
 * Created a user (IAM) for AWS authentication 
 * Automated the backup and upload process with a shell script 
-* Created a Jenkins job which will upload the DB into AWS 
+* Created a Jenkins job (manually on the UI) which will upload the DB into AWS 
 * Persisted the script on the remote host
 * Added parameters to the Jenkins Job so that different DBs backups can be taken and uploaded to different s3 buckets
 ```
 ```
 below are some useful docker commands i've used throughout my learning experience:
-```
-```
+
 * docker-compose up -d ==> start the docker container in the background
 * docker info | grep -i root ==> where docker is saving its files
 * docker logs -f <container> ==> check your container's logs 
