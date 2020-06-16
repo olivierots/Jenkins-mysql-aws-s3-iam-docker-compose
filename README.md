@@ -1,20 +1,25 @@
 =======
 ```
 Project description: 
-created a Jenkins job that will automate the back-up of MySQL database & upload it to an S3 bucket
+The primary goal is to create a Jenkins job that will take a MySQL & upload that back to an AWS s3 bucket
+Workflow: user --> Up/downaload an object --> internet --> Amazon s3
+with only a click on jenkins, my job will execute the entire process workflow
 ```
 ```
-* Created a MySQL db using docker-compose
+## step by step technical instructions ##
+* Build a MySQL image using docker & docker-compose
+* installed aws-cli with all the relevant python/pip packages using the Dockerfile
 * Created an S3 Bucket on AWS 
-* Created a user (IAM) for AWS authentication 
-* Automated the backup and upload process with a shell script 
+* Created a user (IAM=identity & access mngt)) for AWS authentication & give the user the correct access policy to access the bucket
+* Automated the db backup and upload using a shell script 
 * Created a Jenkins job (manually on the UI) which will upload the DB into AWS 
 * Persisted the script on the remote host
 * Added parameters to the Jenkins Job so that different DBs backups can be taken and uploaded to different s3 buckets
 ```
 ```
-below are some useful docker commands i've used throughout my learning experience:
+below are some useful ommands i've used & learnt throughout my learning experience:
 
+1. ## docker-compose commands ##
 * docker-compose up -d ==> start the docker container in the background
 * docker info | grep -i root ==> where docker is saving its files
 * docker logs -f <container> ==> check your container's logs 
@@ -27,7 +32,6 @@ below are some useful docker commands i've used throughout my learning experienc
 * docker-compose build ==> Under the project directory,  run docker-compose build to build (rebuild) the service.
 * docker images ==> list your docker images
 * docker cp remote-key <container>:/tmp/remote-key ==> copy keys to the container to allow passwordless ssh
-* ssh -i /tmp/remote-key remote_user@hostname> ==> ssh into the container 
 * docker rm -fv <container-name> ==> delelte a container
 * docker cp table.j2 web:/var/www/html/index.php ==> copy that file to the container
 * docker ps ==> list your running containers
@@ -46,4 +50,19 @@ below are some useful docker commands i've used throughout my learning experienc
 * docker-compose top ==> view the processes running within each service container.
 * docker-compose pull <service> ==> pulls an image associated with a service defined in a docker-compose.yml
 * docker-compose restart <service> ==> restarts all stopped and running services.
+
+2. ## MySQL commands ##
+* mysql -u root -h <db_container_name> -p: connect to the db
+* show databases;
+* create database <database_name> : create a new db
+* use <database>: go in your db
+* create table <table_name> (name varchar(20), lastname varchar(20), age int(2)); ==> create a table inside a db
+* show tables: show your tables
+* desc <table_name>; ==> show your table structure
+* insert into <table_name> values('olivier', 'otshudi', 30); ==> insert name, lastname & age in my table
+* mysqldump -u root -h <target_host_for the db> -p <name_of_db_that_we+want_exported> > /tmp/db.sql: take a db backup & send to tmp dir
+
+3. ## s3 bucket upload command ##
+* aws s3 cp /tmp/db.sql s3://s3-bucket-url/db.sql (note you need to configure your aws credentials before using this)
+
 ```
