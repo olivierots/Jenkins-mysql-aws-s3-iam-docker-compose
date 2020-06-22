@@ -24,11 +24,12 @@ The Jenkins Job will have the follwing 3 main parameters. MSQL host, Database na
 * Added parameters to re-use the Jenkins Job so that backups from different dbs can be taken and uploaded to different s3 buckets also
 ```
 ```
-Below are some useful ommands i've used & learnt throughout my learning experience:
+Below are some useful commands i've used & learnt throughout my learning experience:
 
 1. ## docker-compose commands ##
 * docker-compose up -d ==> start the docker container in the background
 * docker info | grep -i root ==> where docker is saving its files
+* sudo du -sh /var/lib/docker ==> how much space docker uses on your machine
 * docker logs -f <container> ==> check your container's logs 
 * docker-compose stop ==> stop the service
 * docker-compose restart <container> ==> restart the container
@@ -39,6 +40,7 @@ Below are some useful ommands i've used & learnt throughout my learning experien
 * docker-compose build ==> Under the project directory,  run docker-compose build to build (rebuild) the service.
 * docker images ==> list your docker images
 * docker cp remote-key <container>:/tmp/remote-key ==> copy keys to the container to allow passwordless ssh
+* ssh -i /tmp/remote-key remote_user@hostname> ==> ssh into the container using ssh keys
 * docker rm -fv <container-name> ==> delelte a container
 * docker cp table.j2 web:/var/www/html/index.php ==> copy that file to the container
 * docker ps ==> list your running containers
@@ -46,9 +48,8 @@ Below are some useful ommands i've used & learnt throughout my learning experien
 * docker-compose stop
 * docker-compose pause <service> ==> pauses running containers of a service. They can be unpaused with docker-compose unpause
 * docker-compose unpause
-* docker-compose up: see all of the docker containers currently running
-* docker-compose up: start the docker container
-* docker-compose down: remove all docker containers in the repository
+* docker-compose up ==>  start the docker container
+* docker-compose down ==>  remove all docker containers in the repository
 * docker kill :container_id ==> remove a specific docker container
 * docker-compose config ==> verify that the Compose file format is correct. If it is correct, the configuration is displayed. If the 
   format is incorrect, the cause of the error is displayed.
