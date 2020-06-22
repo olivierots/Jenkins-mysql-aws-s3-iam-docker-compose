@@ -3,7 +3,7 @@
 
 ```
 The primary goal is to create a Jenkins job that will take a MySQL & upload that back to an AWS s3 bucket
-Workflow: user --> Up/downaload an object --> internet --> Amazon s3
+Workflow: user --> Up/download an object --> internet --> Amazon s3
 with only a click on jenkins, my job will execute the entire process workflow
 The Jenkins Job will have the follwing 3 main parameters. MSQL host, Database name & the AWS bucket name.
 ```
