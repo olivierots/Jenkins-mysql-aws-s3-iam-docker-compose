@@ -1,5 +1,5 @@
 =======
-## Project description ##
+## Project description 
 
 ```
 The primary goal is to create a Jenkins job that will take a MySQL & upload that back to an AWS s3 bucket
@@ -7,10 +7,9 @@ Workflow: user --> Up/download an object --> internet --> Amazon s3
 with only a click on jenkins, my job will execute the entire process workflow
 The Jenkins Job will have the follwing 3 main parameters. MSQL host, Database name & the AWS bucket name.
 ```
-```
-## step by step technical procedure ##
 
-* Build a MySQL image using docker & docker-compose
+## Implementation 
+* Built a MySQL image using docker & docker-compose
 * installed aws-cli with all the relevant python/pip packages using the Dockerfile
 * Created an S3 Bucket on AWS 
 * Created a user (IAM=identity & access mngt)) for AWS authentication & give the user the correct access policy to access the bucket
@@ -22,7 +21,7 @@ The Jenkins Job will have the follwing 3 main parameters. MSQL host, Database na
 * added a build step which will ssh into the remote host & execute the script
 * Persisted the script in the container using volumes in docker so that we dont lose it whenever the container is deleted
 * Added parameters to re-use the Jenkins Job so that backups from different dbs can be taken and uploaded to different s3 buckets also
-```
+
 ```
 Below are some useful commands i've used & learnt throughout my learning experience:
 
