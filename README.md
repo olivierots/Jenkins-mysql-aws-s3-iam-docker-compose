@@ -25,7 +25,7 @@ The Jenkins Job will have the follwing 3 main parameters. MSQL host, Database na
 ```
 Below are some useful commands i've used & learnt throughout my learning experience:
 
-1. ## docker-compose commands ##
+1. Docker-compose commands
 * docker-compose up -d ==> start the docker container in the background
 * docker info | grep -i root ==> where docker is saving its files
 * sudo du -sh /var/lib/docker ==> how much space docker uses on your machine
@@ -58,7 +58,7 @@ Below are some useful commands i've used & learnt throughout my learning experie
 * docker-compose pull <service> ==> pulls an image associated with a service defined in a docker-compose.yml
 * docker-compose restart <service> ==> restarts all stopped and running services.
 
-2. ## MySQL commands ##
+2. MySQL commands
 * mysql -u root -h <db_container_name> -p: connect to the db
 * show databases;
 * create database <database_name> : create a new db
@@ -69,7 +69,7 @@ Below are some useful commands i've used & learnt throughout my learning experie
 * insert into <table_name> values('olivier', 'otshudi', 30); ==> insert name, lastname & age in my table
 * mysqldump -u root -h <target_host_for the db> -p <name_of_db_that_we+want_exported> > /tmp/db.sql: take a db backup & send to tmp dir
 
-3. ## s3 bucket upload command ##
+3. s3 bucket upload command
 * aws s3 cp /tmp/db.sql s3://s3-bucket-url/db.sql (note you need to configure your aws credentials before using this)
 
 ```
